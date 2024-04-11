@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Global styles */
+body {
+  font-family: "Noto Sans", sans-serif;
+  padding-bottom: 80px;
+}
+
+.logo {
+  padding: 24px 0px 24px 210px;
+}
+
+.container-fluid {
+  background-color: #f8f7ee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 64px 0;
+}
+
+.leftDiv {
+  width: calc(50% - 190px);
+  max-width: 600px;
+  margin-top: 48px;
+}
+
+.title {
+  color: #094f0c;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 48px;
+}
+
+.bodyImg {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.enquirenowBtn {
+  width: 100%;
+  max-width: 332px;
+  background-color: #094f0c;
+  border-radius: 8px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.textStyle {
+  color: #c2f291;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.rightDiv {
+  padding: 40px;
+  width: 100%;
+  max-width: 412px;
+  background-color: #e6e1c0;
+  border-radius: 30px;
+  margin-top: 48px;
+  margin-left: 64px;
+}
+
+.formTtile {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 38px;
+  color: #094f0c;
+  margin-bottom: 20px;
+}
+
+.formfont {
+  font-size: 15px;
+}
+
+.labelgap {
+  margin-bottom: 5px;
+}
+
+.custom-primary_submit {
+  width: 100%;
+  max-width: 332px;
+  border-radius: 8px;
+  padding: 16px 24px;
+}
+
+.custom-outline-success_OTP {
+  width: 100%;
+  max-width: 332px;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #094f0c;
+  border: 1px solid #094f0c;
+}
+
+.custom-outline-success_OTP:hover {
+  background-color: #fff;
+  color: #094f0c;
+  border: 1px solid #094f0c;
+}
+
+.custom-outline-success_OTP_disable {
+  width: 100%;
+  max-width: 332px;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #bfbfbb;
+  border: 1px solid #bfbfbb;
+}
+
+.custom-primary_submit {
+  background-color: #094f0c;
+  color: #c2f291;
+  border: 1px solid #094f0c;
+}
+
+.custom-primary_submit:hover {
+  background-color: #094f0c;
+  border-color: #094f0c;
+  color: #c2f291;
+}
+
+.custom-primary_submit_disable {
+  width: 100%;
+  max-width: 332px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background-color: #fff;
+  color: #bfbfbb;
+  border: 1px solid #bfbfbb;
+}
+
+.thankyoufeedback {
+  color: #094f0c;
+  font-size: 18px;
+  padding: 40px;
+  width: 100%;
+  max-width: 412px;
+  background-color: #e6e1c0;
+  border-radius: 30px;
+  margin-top: 48px;
+  margin-left: 64px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .logo {
+    padding-left: 15px;
+  }
+
+  .container-fluid {
+    padding: 40px 0;
+  }
+
+  .leftDiv {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 24px;
+  }
+
+  .rightDiv {
+    padding: 20px;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+
+  .enquirenowBtn {
+    width: 100%;
+    max-width: 332px;
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+}
