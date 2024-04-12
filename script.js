@@ -10,9 +10,14 @@
     form.addEventListener(
       "submit",
       (event) => {
+        // Check if the form is valid
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
+        } else {
+          // If all conditions met, proceed to thank you note
+          document.getElementById("form").style.display = "none"; // Hide the form
+          document.querySelector(".thankyoufeedback").style.display = "block"; // Display the thank you message
         }
 
         form.classList.add("was-validated");
@@ -20,7 +25,7 @@
       false
     );
 
-    // Real-time validation on keyup
+    // Real-time validation on keyup for all fields
     Array.from(form.elements).forEach((field) => {
       field.addEventListener("keyup", () => {
         if (field.checkValidity()) {
@@ -30,15 +35,32 @@
         }
       });
     });
+
+    // Validate mobile number before enabling Send OTP button
+    const mobileNumberField = form.querySelector("#validationCustom06");
+    const sendOTPButton = form.querySelector("#sendOTPBtn");
+
+    mobileNumberField.addEventListener("keyup", () => {
+      if (mobileNumberField.checkValidity()) {
+        sendOTPButton.disabled = false;
+      } else {
+        sendOTPButton.disabled = true;
+      }
+    });
   });
 })();
 
 // Function to send OTP
 function sendOTP() {
   var mobileNumber = document.getElementById("validationCustom06").value;
+  // Check if mobile number is valid
+  if (!mobileNumber.match(/^\d{10}$/)) {
+    alert("Please enter a valid 10-digit mobile number.");
+    return;
+  }
   // Generate a random OTP (for demonstration)
   var otp = Math.floor(100000 + Math.random() * 900000);
-  alert("Your OTP is: " + otp);
+  alert("Use this OTP to fill the form: " + otp);
 
   // Hide the "Send OTP" button and show the "Resend OTP" button
   document.getElementById("sendOTPBtn").style.display = "none";
@@ -54,6 +76,11 @@ function sendOTP() {
 // Function to resend OTP
 function resendOTP() {
   var mobileNumber = document.getElementById("validationCustom06").value;
+  // Check if mobile number is valid
+  if (!mobileNumber.match(/^\d{10}$/)) {
+    alert("Please enter a valid 10-digit mobile number.");
+    return;
+  }
   // Generate a random OTP (for demonstration)
   var otp = Math.floor(100000 + Math.random() * 900000);
   alert("Your OTP is: " + otp);
@@ -102,6 +129,7 @@ document
     var resendButton = document.getElementById("resendOTPBtn");
     var timerText = document.getElementById("timerText");
     var sendButton = document.getElementById("sendOTPBtn1");
+    var invalidFeedback = document.querySelector(".invalid-feedback");
 
     // For demonstration, assuming OTP length is 6 characters
     if (otpInput.length === 6) {
@@ -112,18 +140,28 @@ document
       // Show the submitButton only when correct OTP is entered
       submitButton.style.display = "inline-block";
       submitButton.disabled = false;
+      invalidFeedback.style.display = "none"; // Hide invalid feedback
     } else {
       submitButton1.style.display = "inline-block"; // Show the incorrect submit button
       submitButton1.disabled = true; // Disable the incorrect submit button
       submitButton.style.display = "none"; // Hide the correct submit button
+      invalidFeedback.style.display = "block"; // Show invalid feedback
     }
   });
 
-// thank you note
+// Function to handle form submission after OTP verification
 document
-  .getElementById("franchiseForm")
-  .addEventListener("submit", function (event) {
+  .getElementById("submitButton")
+  .addEventListener("click", function (event) {
     event.preventDefault(); // Prevents the default form submission
+    const form = document.getElementById("franchiseForm");
+    // Check if the form is valid
+    if (!form.checkValidity()) {
+      event.stopPropagation();
+      form.classList.add("was-validated");
+      return;
+    }
+    // Proceed to thank you note if all conditions met
     document.getElementById("form").style.display = "none"; // Hide the form
     document.querySelector(".thankyoufeedback").style.display = "block"; // Display the thank you message
   });
