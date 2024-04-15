@@ -1,4 +1,3 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
   "use strict";
 
@@ -14,10 +13,6 @@
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
-        } else {
-          // If all conditions met, proceed to thank you note
-          document.getElementById("form").style.display = "none"; // Hide the form
-          document.querySelector(".thankyoufeedback").style.display = "block"; // Display the thank you message
         }
 
         form.classList.add("was-validated");
@@ -109,7 +104,7 @@ function disableButtonForDuration(durationInSeconds) {
     if (seconds < 0) {
       seconds = 59;
       minutes--;
-      formattedMinutes = (minutes < 10 ? "0" : "") + minutes; // Update formattedMinutes
+      formattedMinutes = (minutes < 10 ? "0" : "") + minutes;
     }
     if (minutes < 0) {
       clearInterval(timerInterval);
@@ -133,19 +128,19 @@ document
 
     // For demonstration, assuming OTP length is 6 characters
     if (otpInput.length === 6) {
-      submitButton1.style.display = "none"; // Hide the incorrect submit button
+      submitButton1.style.display = "none";
       resendButton.style.display = "none";
       timerText.style.display = "none";
       sendButton.style.display = "inline-block";
       // Show the submitButton only when correct OTP is entered
       submitButton.style.display = "inline-block";
       submitButton.disabled = false;
-      invalidFeedback.style.display = "none"; // Hide invalid feedback
+      invalidFeedback.style.display = "none";
     } else {
-      submitButton1.style.display = "inline-block"; // Show the incorrect submit button
-      submitButton1.disabled = true; // Disable the incorrect submit button
-      submitButton.style.display = "none"; // Hide the correct submit button
-      invalidFeedback.style.display = "block"; // Show invalid feedback
+      submitButton1.style.display = "inline-block";
+      submitButton1.disabled = true;
+      submitButton.style.display = "none";
+      invalidFeedback.style.display = "block";
     }
   });
 
@@ -153,15 +148,15 @@ document
 document
   .getElementById("submitButton")
   .addEventListener("click", function (event) {
-    event.preventDefault(); // Prevents the default form submission
+    event.preventDefault();
     const form = document.getElementById("franchiseForm");
-    // Check if the form is valid
+
     if (!form.checkValidity()) {
       event.stopPropagation();
       form.classList.add("was-validated");
       return;
     }
     // Proceed to thank you note if all conditions met
-    document.getElementById("form").style.display = "none"; // Hide the form
-    document.querySelector(".thankyoufeedback").style.display = "block"; // Display the thank you message
+    document.getElementById("form").style.display = "none";
+    document.querySelector(".thankyoufeedback").style.display = "block";
   });
